@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Header from './components/Header';
 import Definition from './components/Definition';
 
 function App() {
+
+  const[word, setWord] = useState("");
+
+  function changeWord(text) {
+    setWord(text);
+  }
   return (
-    <div class="container">
+    <div className="container">
     <main>
-      <Header />
-      <Definition />
+      <Header onChange={changeWord}/>
+      <Definition word={word}/>
     </main>
   </div>
   );
